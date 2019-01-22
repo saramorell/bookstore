@@ -19,7 +19,7 @@ export default class Book extends Component {
             <p className="card-text">By: {this.props.author}</p>
             <p className="card-text">{this.props.description}</p>
             <p className="card-text">${(this.props.price).toFixed(2)} </p>
-            <button id="bookButton" value={this.props.title} onClick={(e)=>this.props.addToCart(e.target.value)} className="btn btn-primary">Add to Cart</button>
+            <button id="bookButton"  onClick={()=>this.props.addToCart(this.props.id)} className="btn btn-primary">Add to Cart</button>
           </div>
         </div>
       </li>

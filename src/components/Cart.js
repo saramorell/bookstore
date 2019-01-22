@@ -19,17 +19,25 @@ export default class Cart extends Component {
                 </div>
               </h5>
             </div>
-            {this.props.cart.map(item => <CartItem
-              key={item.id}
-              title={item.title}
-              price={item.price}/>)}
-          </div>
+              {this.props.cart.map(item =>
+
+                  <CartItem
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    price={item.price}
+                    removeFromCart={this.props.removeFromCart}
+                  />
+              )}
+            </div>
           <div>
+            <div className="list-group-item">
               <h4>
               Total: ${this.props.cart.reduce((total, item)=>{
                 return total + (item.price)
               },0)}
               </h4>
+            </div>
             </div>
 
           </div>
