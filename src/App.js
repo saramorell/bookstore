@@ -36,10 +36,11 @@ class App extends Component {
       })
     const updatedBook = await patchResponse.json()
 
-    let indexOfBookToChange = this.state.books.indexOf(updatedBook)
+    let indexOfBookToChange = this.state.books.findIndex(book => book.id === bookId)
+    console.log(indexOfBookToChange)
 
       this.setState({
-          books: [...this.state.books.slice(0,indexOfBookToChange), updatedBook, ...this.state.books.slice(indexOfBookToChange)]
+          books: [...this.state.books.slice(0,indexOfBookToChange), updatedBook, ...this.state.books.slice(indexOfBookToChange + 1)]
       })
   }
 
@@ -53,19 +54,18 @@ class App extends Component {
       })
     const removedBook = await removeResponse.json()
 
-    let indexOfBookToChange = this.state.books.indexOf(removedBook)
+    let indexOfBookToChange = this.state.books.findIndex(book => book.id === bookId)
+    console.log(indexOfBookToChange)
 
       this.setState({
-          books: [...this.state.books.slice(0,indexOfBookToChange), removedBook, ...this.state.books.slice(indexOfBookToChange)]
+          books: [...this.state.books.slice(0,indexOfBookToChange), removedBook, ...this.state.books.slice(indexOfBookToChange + 1)]
       })
   }
 
-
-calculateCart = () => {
-  let cartItems = this.state.books.filter(book => book.inCart)
-    return cartItems
-}
-
+  calculateCart = () => {
+    let cartItems = this.state.books.filter(book => book.inCart)
+      return cartItems
+  }
 
   renderBooks = () => {
     return this.state.filteredBooks.map((b, i) => {

@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const CartItem = (props) => {
-  console.log(props)
   return (
     <div className = "list-group-item" >
       <div className = "row">

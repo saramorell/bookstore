@@ -19,10 +19,10 @@ export default class Cart extends Component {
                 </div>
               </h5>
             </div>
-              {this.props.cart.map(item =>
+              { this.props.cart.map((item, i) =>
 
                   <CartItem
-                    key={item.id}
+                    key={i}
                     id={item.id}
                     title={item.title}
                     price={item.price}
