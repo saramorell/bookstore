@@ -5,7 +5,7 @@ export default class Cart extends Component {
 
 
 
-  render(props){
+  render(){
 
     return (
       <div>
