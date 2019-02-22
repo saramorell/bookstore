@@ -14,7 +14,7 @@ class App extends Component {
 
   // fetch data from an api
   async componentDidMount() {
-    const response = await fetch('http://localhost:8082/api/books')
+    const response = await fetch(`https://deployed-collective-api.herokuapp.com/api/books`)
     const json = await response.json()
     this.setState({books: json, filteredBooks: json} )
   }
@@ -27,7 +27,7 @@ class App extends Component {
 
 
   addToCart = async (bookId) => {
-    const patchResponse = await fetch(`http://localhost:8082/api/books/cart/add/${bookId}`, {
+    const patchResponse = await fetch(`https://deployed-collective-api.herokuapp.com/api/books/cart/add/${bookId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   removeFromCart = async (bookId) => {
-    const removeResponse = await fetch(`http://localhost:8082/api/books/cart/remove/${bookId}`, {
+    const removeResponse = await fetch(`https://deployed-collective-api.herokuapp.com/api/books/cart/remove/${bookId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
